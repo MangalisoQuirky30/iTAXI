@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="passenger/CSS/index.css">
+    <title>iTAXI</title>
+</head>
+<body>
+    <div class="logo-page">
+        <div class="logo-page-container">
+            <div class="logo-page-image-container">
+                <img src="passenger/IMG/icon-logo.png" class="logo-page-image__img" id="logo">
+            </div>
+            <!-- <div class="logo-page-text-container">
+                <h1 class="logo-page-text__heading">iTaxi</h1>
+            </div> -->
+            <div class="logo-page-buttons-container">
+                <div class="logo-page-buttons-driver">
+                    <button type"button"  class="logo-page-buttons-driver__btn" id="driver_btn">driver</button>
+                </div>
+                <div class="logo-page-buttons-passenger">
+                    <button type"button"  class="logo-page-buttons-passenger__btn"  id="passenger_btn">passenger</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-page">
+        <div class="form-section">
+            <div class="form-section-btn-container">
+                <div class="form-section-btn-sign-up">
+                    <button type"button"  class="form-section-btn-sign-up__btn">Sign Up</button>
+                    <hr class="form-section-btn-sign-up__hr">
+                </div>
+                <div class="form-section-btn-sign-in">
+                    <button type"button"   class="form-section-btn-sign-in__btn">Sign In</button>
+                    <hr class="form-section-btn-sign-in__hr">
+                </div>
+            </div>
+            <div class="form-section-form-container">
+                <form class="form-section-sign-up-form" id="sign-up-form">
+                    <h3 id="driver-or-passenger"></h3>
+                    <div class="form-section-sign-up-form-name">
+                        <input type="text"  class="form-section-sign-up-form-name__input" id="name-su"  placeholder="username">
+                    </div>
+                    <div class="form-section-sign-up-form-email">
+                        <input type="email" id="email-su" class="form-section-sign-up-form-email__input" placeholder="name@example.com">
+                    </div>
+                    <div class="form-section-sign-up-form-password">
+                        <input type="password" id="password-su" class="form-section-sign-up-form-password__input" placeholder="password">
+                    </div>
+                    <div class="form-section-sign-up-form-password">
+                        <input type="password" id="cpassword-su" class="form-section-sign-up-form-password__input" placeholder="confirm-password">
+                    </div>
+                    <div class="form-section-sign-up-form-submit">
+                        <button type="submit"  id="submit-su" class="form-section-sign-up-form-submit__btn">Sign Up</button>
+                    </div>
+                </form>
+                <form class="form-section-sign-in-form"  id="sign-in-form">
+                    <div class="form-section-sign-in-form-email">
+                        <input type="email" id="email-si" class="form-section-sign-in-form-email__input" placeholder="name@example.com">
+                    </div>
+                    <div class="form-section-sign-in-form-password">
+                        <input type="password" id="password-si" class="form-section-sign-in-form-password__input" placeholder="password">
+                    </div>
+                    <div class="form-section-sign-in-form-submit">
+                        <button type="submit"  id="submit-si" class="form-section-sign-in-form-submit__btn">Sign In</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="passenger/JS/index.js"></script> -->
+    <script src="passenger/JS/index/user.js"></script>
+    <script src="passenger/JS/index/ui.js"></script>
+    <script src="passenger/JS/index/app.js"></script>
+</body>
+</html>
