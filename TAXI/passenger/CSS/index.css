@@ -12,6 +12,11 @@ body {
 }
 
 
+input:focus {
+    outline: none !important;
+    border:1px solid #f5cf37;
+}
+
 /* LOGO PAGE */
 
 .logo-page {
@@ -111,12 +116,12 @@ body {
 
 
 
+
 /* SIGN UP / SIGN IN FORMS */
 
 .form-page {
     height : 320px;
     display : none;
-    background-color: #f5cf37;
 }
 
 .form-section {
@@ -144,8 +149,10 @@ body {
 
 
 
-.form-section-btn-sign-up__btn ,
-.form-section-btn-sign-in__btn{
+.pass-form-section-btn-sign-up__btn ,
+.pass-form-section-btn-sign-in__btn ,
+.driver-form-section-btn-sign-up__btn ,
+.driver-form-section-btn-sign-in__btn{
     text-decoration: none;
     color: black;
     font-size : 25px;
@@ -154,41 +161,67 @@ body {
     background-color: white ;
 }
 
- .form-section-btn-sign-up__hr  {
+ .pass-form-section-btn-sign-up__hr ,
+ .driver-form-section-btn-sign-up__hr  {
     width : 80px ;
 }
- .form-section-btn-sign-in__hr {
+ .pass-form-section-btn-sign-in__hr ,
+ .driver-form-section-btn-sign-in__hr {
     width : 40px ;
 }
 
+
+
+.pass-form-section-btn-sign-in__btn ,
 .form-section-btn-sign-in__btn{
     color : grey;
 }
 
-.form-section-btn-sign-up__btn{
+.pass-form-section-btn-sign-up__btn ,
+.driver-form-section-btn-sign-up__btn{
     color : black;
 }
 
-.form-section-btn-sign-up__hr ,
-.form-section-btn-sign-in__hr {
+.pass-form-section-btn-sign-up__hr ,
+.pass-form-section-btn-sign-in__hr ,
+.driver-form-section-btn-sign-up__hr ,
+.driver-form-section-btn-sign-in__hr {
     border : none;
     height : 8px;
     display: block;
     margin: 10px auto;
     border-radius: 25px;
 }
-.form-section-btn-sign-in__hr {
+.pass-form-section-btn-sign-in__hr ,
+.driver-form-section-btn-sign-in__hr {
     background-color : #ccc;
 
 }
 
-.form-section-btn-sign-up__hr {
+.pass-form-section-btn-sign-up__hr ,
+.driver-form-section-btn-sign-up__hr {
     background-color : #f5cf37;
 }
 
 .form-section-btn-sign-up__btn:hover  ,
 .form-section-btn-sign-in__btn:hover {
+    
+    background-color : #000;
+    color : #f5cf37;
 }
+
+.driver-or-passenger ,
+.driver-or-passenger-d {
+    color: black;
+    font-size : 25px;
+    font-weight : bold;
+    border : none;
+    background-color: #f5cf37 ;
+    text-align: center;
+    padding : 20px;
+    display: block;
+}
+
 
 .form-section-form-container {
 }
@@ -231,7 +264,11 @@ body {
 }
 
 .form-section-sign-up-form-submit__btn ,
-.form-section-sign-in-form-submit__btn {
+.form-section-sign-in-form-submit__btn ,
+.driver-form-section-sign-up-form-submit__btn ,
+.driver-form-section-sign-in-form-submit__btn {
+    border-radius : 10px;
+    width : 100% ;
     margin-top : 20px;
     padding : 15px 10px;
     border : 1px solid #ccc ;

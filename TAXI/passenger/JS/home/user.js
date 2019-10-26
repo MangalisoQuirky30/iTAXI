@@ -40,17 +40,7 @@ User.prototype = {
 
     init : function(){
         this.data = JSON.parse(localStorage.getItem('users'))  != null    ?    JSON.parse(localStorage.getItem('users'))     :    [ ]  ;
-        console.log(this.data) ; 
-        console.log("saving group id")
-        for(var i = 0; i < this.taxiRanks.length; i++) {
-             console.log("saving group id")
-            for(var x = 0; x < this.taxiRanks[i].length; x++){
-                this.taxiRanks[i].push({groupId:i})
-         console.log("saving group id")
-               // console.log(this.taxiRanks[i][x])
-
-            }
-        }
+        console.log(this.data) ;
     } ,
 
     showHideMenu : function(selectors){
