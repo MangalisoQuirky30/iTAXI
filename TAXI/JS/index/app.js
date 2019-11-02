@@ -26,23 +26,33 @@ function App( UserCtrl , UICtrl ){
         user.showDriverSIform(ui.selectors)
     }) ;
 
-    //SUBMIT REGISTRATION FROM
+    //SUBMIT PASSENGER/DRIVER REGISTRATION FROM
     ui.selectors.passFormSU.addEventListener('submit' , function(e){
         e.preventDefault()
         user.savePassenger(ui.registerPassengerHandler() , ui.selectors)
+        user.showDriverSIform()
+    })
+    
+    ui.selectors.driverFormSU.addEventListener('submit' , function(e){
+        e.preventDefault()
+        user.saveDriver(ui.registerDriverHandler() , ui.selectors)
     })
 
     //SUBMIT LOGIN FORM
     ui.selectors.passFormSI.addEventListener('submit' , function(e){
         e.preventDefault() ;
-        console.log(user.errors)
         user.loginPassenger(ui.loginPassengerHandler() , ui.selectors) ; 
+    })
+
+    ui.selectors.driverFormSI.addEventListener('submit' , function(e){
+        e.preventDefault()
+        user.loginDriver(ui.loginDriverHandler() , ui.selectors)
     })
 
     // Initialize the two functions
     ui.init() ;
 
-    user.init()
+    user.init(ui.selectors)
 }
 
 

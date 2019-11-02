@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="passenger/CSS/index.css">
+    <link rel="stylesheet" href="CSS/index.css">
     <title>iTAXI</title>
 </head>
 <body>
     <div class="logo-page">
         <div class="logo-page-container">
             <div class="logo-page-image-container">
-                <img src="passenger/IMG/icon-logo.png" class="logo-page-image__img" id="logo">
+                <img src="IMG/icon-logo.png" class="logo-page-image__img" id="logo">
             </div>
             <div class="logo-page-buttons-container">
                 <div class="logo-page-buttons-driver">
@@ -28,18 +28,23 @@
         <div class="form-section">
             <div class="form-section-btn-container">
                 <div class="form-section-btn-sign-up">
-                    <button type"button"  class="pass-form-section-btn-sign-up__btn">Sign Up</button>
-                    <hr class="pass-form-section-btn-sign-up__hr">
+                    <button type"button"  class="pass-form-section-btn-sign-up__btn">
+                        Sign Up
+                        <hr class="pass-form-section-btn-sign-up__hr">
+                    </button>
                 </div>
                 <div class="form-section-btn-sign-in">
-                    <button type"button"   class="pass-form-section-btn-sign-in__btn">Sign In</button>
-                    <hr class="pass-form-section-btn-sign-in__hr">
+                    <button type"button"   class="pass-form-section-btn-sign-in__btn">
+                        Sign In
+                        <hr class="pass-form-section-btn-sign-in__hr">
+                    </button>
                 </div>
             </div>
             <div class="form-section-form-container">
                 <h3 class="driver-or-passenger"></h3>
                 <form class="form-section-sign-up-form" id="passSUForm">
-                    <ul class="errors-p"></ul>
+                    <ul class="errors-p-su"></ul>
+                    <p class="pass-success-su"></p>
                     <div class="form-section-sign-up-form-name">
                         <input type="text"  class="form-section-sign-up-form-name__input" id="pass-name-su"  placeholder="username">
                     </div>
@@ -59,7 +64,7 @@
 
 
                 <form class="form-section-sign-in-form"  id="passSIForm">
-                    <ul class="errors-p"></ul>
+                    <ul class="errors-p-si"></ul>
                     <div class="form-section-sign-in-form-email">
                         <input type="email" id="pass-email-si" class="form-section-sign-in-form-email__input" placeholder="name@example.com">
                     </div>
@@ -70,24 +75,24 @@
                         <button type="submit"  id="pass-submit-si" class="form-section-sign-in-form-submit__btn">Sign In</button>
                     </div>
                 </form>
-
-                
             </div>
         </div>
-
-
     </div>
 
     <div class="form-page user-driver">
             <div class="form-section">
                 <div class="form-section-btn-container">
                     <div class="form-section-btn-sign-up">
-                        <button type"button"  class="driver-form-section-btn-sign-up__btn">Sign Up</button>
-                        <hr class="driver-form-section-btn-sign-up__hr">
+                        <button type"button"  class="driver-form-section-btn-sign-up__btn">
+                            Sign Up
+                            <hr class="driver-form-section-btn-sign-up__hr">
+                        </button>
                     </div>
                     <div class="form-section-btn-sign-in">
-                        <button type"button"   class="driver-form-section-btn-sign-in__btn">Sign In</button>
-                        <hr class="driver-form-section-btn-sign-in__hr">
+                        <button type"button"   class="driver-form-section-btn-sign-in__btn">
+                            Sign In
+                            <hr class="driver-form-section-btn-sign-in__hr">
+                        </button>
                     </div>
                 </div>
                 <div class="form-section-form-container">
@@ -97,9 +102,10 @@
 
                    
                     <form class="form-section-sign-up-form" id="driverSUForm">
-                        <ul class="errors-d"></ul>
+                        <ul class="errors-d-su"></ul>
+                        <p class="driver-success-su"></p>
                         <div class="form-section-sign-up-form-name">
-                            <input type="text"  class="form-section-sign-up-form-name__input" id="driver-name-su"  placeholder="username">
+                            <input type="text"  class="form-section-sign-up-form-name__input" id="driver-name-su"  placeholder="First Name and Last Name">
                         </div>
                         <div class="form-section-sign-up-form-email">
                             <input type="email" id="driver-email-su" class="form-section-sign-up-form-email__input" placeholder="name@example.com">
@@ -113,6 +119,12 @@
                         <div class="form-section-sign-up-form-name">
                             <input type="tel"  class="form-section-sign-up-form-name__input" id="driver-idnumber-su"  placeholder="ID number">
                         </div>
+
+                        <select name="taxi-ranks" id="taxi-rank-list" class="form-section-sign-up-form-name__input" style="height: 30px; border-radius:20px;">
+                         
+                        </select>
+
+
                         <div class="form-section-sign-up-form-password">
                             <input type="password" id="driver-password-su" class="form-section-sign-up-form-password__input" placeholder="password">
                         </div>
@@ -127,12 +139,12 @@
     
                     
                     <form class="form-section-sign-in-form"  id="driverSIForm">
-                        <ul class="errors-d"></ul>
+                        <ul class="errors-d-si"></ul>
                         <div class="form-section-sign-in-form-email">
                             <input type="email" id="driver-email-si" class="form-section-sign-in-form-email__input" placeholder="name@example.com">
                         </div>
                         <div class="form-section-sign-in-form-password">
-                            <input type="password" id="driverword-si" class="form-section-sign-in-form-password__input" placeholder="password">
+                            <input type="password" id="driver-password-si" class="form-section-sign-in-form-password__input" placeholder="password">
                         </div>
                         <div class="form-section-sign-in-form-submit">
                             <button type="submit"  id="driver-submit-si" class="driver-form-section-sign-in-form-submit__btn">Sign In</button>
@@ -147,8 +159,8 @@
         </div>
 
     <!-- <script src="passenger/JS/index.js"></script> -->
-    <script src="passenger/JS/index/user.js"></script>
-    <script src="passenger/JS/index/ui.js"></script>
-    <script src="passenger/JS/index/app.js"></script>
+    <script src="JS/index/user.js"></script>
+    <script src="JS/index/ui.js"></script>
+    <script src="JS/index/app.js"></script>
 </body>
 </html>

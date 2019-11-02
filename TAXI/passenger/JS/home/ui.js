@@ -7,6 +7,9 @@ function UI(){
         homeNav :  document.querySelector(".home-navigation") ,
         menuCont :  document.querySelector(".home-navigation-content") ,
 
+        passName1 : document.getElementById('pass-name1') ,
+        passName2 : document.getElementById('pass-name2') ,
+
         menuContainer :  document.querySelector(".home-navigation-container") ,
         menuBtnSec :  document.querySelector(".home-navigation-content-access-container") ,
         page : document.getElementById('page') ,

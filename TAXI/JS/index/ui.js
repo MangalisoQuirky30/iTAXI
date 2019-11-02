@@ -30,13 +30,18 @@ function UI(){
 
         driverOrPassD : document.querySelector('.driver-or-passenger-d'),
 
-        errorsD : document.querySelector(".errors-d"),
-        errorsP : document.querySelector(".errors-p"),
+        errorsDSU : document.querySelector(".errors-d-su"),
+        errorsDSI : document.querySelector(".errors-d-si"),
+        errorsPSU : document.querySelector(".errors-p-su"),
+        errorsPSI : document.querySelector(".errors-p-si"),
+        
+        successD : document.querySelector(".driver-success-su"),
+        successP : document.querySelector(".pass-success-su"),
 
         passFormSU : document.getElementById('passSUForm') ,
         passFormSI : document.getElementById('passSIForm') ,
         pName :  document.getElementById('pass-name-su') ,
-        pEmail :  document.getElementById('pass-email-su') ,
+        pEmail :  document.getElementById('pass-email-su') , 
         pPass :  document.getElementById('pass-password-su') ,
         pCpass :  document.getElementById('pass-cpassword-su') ,
         pLoginEmail :  document.getElementById('pass-email-si') ,
@@ -45,11 +50,14 @@ function UI(){
         driverFormSU : document.getElementById('driverSUForm') ,
         driverFormSI : document.getElementById('driverSIForm') ,
 
+        taxiRanks : document.getElementById("taxi-rank-list") ,
+
         dName :  document.getElementById('driver-name-su') ,
         dEmail :  document.getElementById('driver-email-su') ,
         dNumberPlate :  document.getElementById('driver-plate-su') ,
         dPhoneNum :  document.getElementById('driver-phone-su') ,
         dIdNumber :  document.getElementById('driver-idnumber-su') ,
+        dTaxiRank :  document.getElementById('taxi-rank-list') ,
         dPass :  document.getElementById('driver-password-su') ,
         dCpass :  document.getElementById('driver-cpassword-su') ,
         dLoginEmail :  document.getElementById('driver-email-si') ,
@@ -96,9 +104,12 @@ UI.prototype = {
             dIdNumber : this.selectors.dIdNumber.value,
             dNumberPlate : this.selectors.dNumberPlate.value,
             dPhoneNum : this.selectors.dPhoneNum.value,
+            dTaxiRank : this.selectors.dTaxiRank.value ,
             dName : this.selectors.dName.value ,
             dEmail : this.selectors.dEmail.value ,
-            dPass : this.selectors.dPass.value 
+            dPass : this.selectors.dPass.value,
+            availableSeats : this.selectors.cSeats.value,
+            bookings:[]
         }
         return driver ;
     } ,
@@ -106,7 +117,7 @@ UI.prototype = {
     loginDriverHandler : function(){
         var loginData = {
             dLoginEmail : this.selectors.dLoginEmail.value  ,
-            dLoginPass : this.selectors.dLoginPass.value  ,
+            dLoginPass : this.selectors.dLoginPass.value  
         }
         return loginData ;
     } ,

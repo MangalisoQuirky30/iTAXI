@@ -1,46 +1,36 @@
 // user model 
 
 function User(){
-    this.data = [] ; 
+   // this.data = [] ; 
     this.errors = [] ;
-    this.taxiRanks = [
-        [
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 }
-        ],
-        [
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 }
-        ],
-        [
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 }
-        ],
-        [
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 },
-            { taxiPlate : "ca324f4" , driver : "chooster" , sitLeft : 5 , from : "Langa" ,  to : "Cape Town" , price : "R15" , timeLeft : 10 }
-        ],
-    
-]
 }
 
 User.prototype = {
 
-    init : function(){
-        this.data = JSON.parse(localStorage.getItem('users'))  != null    ?    JSON.parse(localStorage.getItem('users'))     :    [ ]  ;
-        console.log(this.data) ;
+    init : function(selectors){
+        selectors.rankPage.style.display = "none"
+        //this code prints the logged in users name on the dashboard
+       var passName = window.location.search.substr(1)
+       selectors.passName1.innerHTML = passName.replace("%20" , " ").replace("%20" , " ").replace("%20" , " ")
+       selectors.passName2.innerHTML = passName.replace("%20" , " ").replace("%20" , " ").replace("%20" , " ")
+
+       var allTaxiRanks = JSON.parse(localStorage.getItem('taxi-ranks'))
+
+       for(var x = 0; x < allTaxiRanks.length ; x++){
+           
+            selectors.taxiRankList.innerHTML += 
+            `<li class="home-page-nearby-taxirank-list-item">
+                <div class="home-page-nearby-taxirank-list-item-icon">
+                    <img src="/passenger/IMG/icon-location.png" alt="l/i" class="home-page-nearby-taxirank-list-item-icon__img">
+                </div>
+                <div class="home-page-nearby-taxirank-list-item-text">
+                    <a  class="home-page-nearby-taxirank-list-item-text__paragraph">${allTaxiRanks[x]}</a>
+                </div>
+            </li>`
+       }  
+
+       
+
     } ,
 
     showHideMenu : function(selectors){
@@ -71,55 +61,50 @@ User.prototype = {
     } ,
     showTaxisAtRank : function(selectors , rankName){
         selectors.homePage.style.display = "none"
-        selectors.taxisAtRankList.style.display = "block"
+        selectors.rankPage.style.display = "block"
         selectors.taxiRankHeading.textContent = rankName
 
-        var taxiRanks = JSON.parse(localStorage.getItem('Taxi-ranks'))
+        var taxiRanks = JSON.parse(localStorage.getItem('taxi-ranks'))
+        var taxiDrivers = JSON.parse(localStorage.getItem('drivers')) 
+        var updates = JSON.parse(localStorage.getItem('updates')) 
 
-        if(rankName.trim() == "Langa")
-        {
-            var rank = taxiRanks[0]
-        }
-        if(rankName.trim() == "Khayelitsha")
-        {
-            var rank = taxiRanks[1]
-        }
-        if(rankName.trim() == "Wynberg")
-        {
-            var rank = taxiRanks[2]
-        }
-        if(rankName.trim() == "Claremont")
-        {
-            var rank = taxiRanks[3]
+
+        for(var i = 0 ; i < taxiDrivers.length ; i++){
+            if(taxiDrivers[i].dTaxiRank == rankName){
+                console.log(taxiDrivers[i])
+
+
+                for(var x = 0; x < updates.length ; x++){
+                    if( taxiDrivers[i].dEmail == updates[x].driverEmail) {
+                        selectors.taxisAtRankList.innerHTML  += `<li class="rank-page-list-item">
+                            <div class="rank-page-details">
+                                <div class="rank-page-details-left">
+                                    <div class="rank-page-details-left-icon">
+                                        <img src="/passenger/IMG/icon-taxi.png" alt="" class="rank-page-details-left-icon__img">
+                                    </div>
+                                    <div class="rank-page-details-left-text">
+                                        <h4 class="rank-page-details-left-text__heading">${updates[x].destination}</h4>
+                                        <p class="rank-page-details-left-text__para">${updates[x].sitsLeft} sits left</p>
+                                    </div>
+                                </div>
+                                <div class="rank-page-details-right">
+                                    <div class="rank-page-details-right-text">
+                                        <h4 class="rank-page-details-right-text__heading">R${updates[x].price}</h4>
+                                        <p class="rank-page-details-right-text__para">${updates[x].sitsLeft * 1.5} mins left</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>`
+                    }
+                } 
+            }
         }
 
-        console.log(rankName)
-        
-        for(var i = 0; i < rank.length ; i++){
-            selectors.taxisAtRankList.innerHTML  += `<li class="rank-page-list-item">
-            <div class="rank-page-details">
-                <div class="rank-page-details-left">
-                    <div class="rank-page-details-left-icon">
-                        <img src="..\..\IMG\icon-taxi.png" alt="" class="rank-page-details-left-icon__img">
-                    </div>
-                    <div class="rank-page-details-left-text">
-                        <h4 class="rank-page-details-left-text__heading">${rank[i].to}</h4>
-                        <p class="rank-page-details-left-text__para">${rank[i].sitLeft} sits left</p>
-                    </div>
-                </div>
-                <div class="rank-page-details-right">
-                    <div class="rank-page-details-right-text">
-                        <h4 class="rank-page-details-right-text__heading">${rank[i].price}</h4>
-                        <p class="rank-page-details-right-text__para">${rank[i].timeLeft} mins left</p>
-                    </div>
-                </div>
-            </div>
-        </li>`
-        }
         return rankName.trim()
      } ,
 
      showTaxiDetails : function(selectors){
+         console.log("hellooooooooooooooooooooooooo")
         selectors.taxisAtRankListItem.innerHTML = `
         <div class="rank-page-driver-details">
             <div class="rank-page-driver-details-profile">

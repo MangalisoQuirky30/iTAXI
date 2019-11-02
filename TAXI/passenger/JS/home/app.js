@@ -18,16 +18,17 @@ function App( UserCtrl , UICtrl ){
         user.showTaxisAtRank(ui.selectors , rankName)
     })
 
-   // if(ui.selectors.taxisAtRankListItem != null){
+   if(ui.selectors.taxisAtRankListItem != null){
+    console.log("clicked list item")
         ui.selectors.taxisAtRankListItem.addEventListener('click' , function(){
             console.log("clicked list item")
             user.showTaxiDetails(ui.selectors)
         })
-   // }
+    }
 
     // Initialize the two functions
     ui.init() ;
-    user.init()
+    user.init(ui.selectors)
 }
 
 // APP INIT
