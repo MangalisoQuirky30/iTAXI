@@ -8,6 +8,21 @@ function User(){
 User.prototype = {
 
     init : function(selectors){
+
+        var checkToken = JSON.parse(localStorage.getItem('token'))
+        console.log(checkToken)
+        var dtNow = new Date() ;
+        var timeNow = dtNow.getHours()
+        console.log(timeNow)
+        if(timeNow > checkToken){
+            window.location.href = "/index.html"
+        }
+        if(timeNow == checkToken){
+            window.location.href = "/driver/home.html"
+        }
+
+
+
         this.updates = JSON.parse(localStorage.getItem('updates')) != null ? JSON.parse(localStorage.getItem('updates')) : []
         //this code prints the logged in users name on the dashboard
         var driEml = window.location.search.substr(1)

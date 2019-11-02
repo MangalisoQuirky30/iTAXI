@@ -10,6 +10,14 @@ function User(){
 User.prototype = {
 
     init : function(selectors){
+
+        
+                    
+        
+
+
+
+
         this.passengers = JSON.parse(localStorage.getItem('passengers'))  != null    ?    JSON.parse(localStorage.getItem('passengers'))     :    [ ]  ;
         this.drivers = JSON.parse(localStorage.getItem('drivers'))  != null    ?    JSON.parse(localStorage.getItem('drivers'))     :    [ ]  ;
 
@@ -242,22 +250,21 @@ User.prototype = {
         if(exstPass != null){
             exstPass.map(function(pass){
                 if(pass.pEmail == passDetails.pLoginEmail && pass.pPass == passDetails.pLoginPass){
-                    // creater token and save it
-                    var token = "hvdyvbvasxuiqgdvqw--fakeToken";
-                    localStorage.setItem('token', JSON.stringify(token))
+                    // creater time token and save it
+                    var dt = new Date() ;
+                    var currentHour = dt.getHours()
+                    localStorage.setItem('token', JSON.stringify(currentHour))
+
                     var uri = encodeURIComponent(pass.pName)
                     window.location.href = `passenger/home.html` + "?" + uri ;
                 }else {
                     console.log(this.errors)
-                    //this.errors.push({err:"Invalid login details"})
                     selectors.errorsPSI.innerHTML = '<li>Invalid login details</li>'
                 }
             }) 
         } else {
             selectors.errorsPSI.innerHTML = '<li>Invalid login details</li>'
         }
-
-        
     } ,
 
 
@@ -283,8 +290,9 @@ User.prototype = {
             if(exstDrivers != null){
                 exstDrivers.map(function(driv){
                     if(driv.dEmail == driverDetails.dLoginEmail && driv.dPass == driverDetails.dLoginPass){
-                        var token = "hvdyvbvasxuiqgdvqw--fakeToken";
-                        localStorage.setItem('token' , JSON.stringify(token)) 
+                        var dt = new Date() ;
+                        var currentHour = dt.getHours()
+                        localStorage.setItem('token', JSON.stringify(currentHour)) 
                         var uri = encodeURIComponent(driv.dEmail)
                         window.location.href = `driver/home.html` + "?" + uri ;
                     } else {
