@@ -1,0 +1,66 @@
+
+
+
+#driver-updates {
+    margin : 0 auto;
+    text-align: center;
+}
+
+#driver-updates [type="submit"]{
+    text-decoration: none;
+    color: black;
+    font-size : 25px;
+    font-weight : bold;
+    border : none;
+    background-color: #f5cf37;
+}
+
+
+
+#driver-updates [type="submit"]:hover {
+    
+    background-color : #000;
+    color : #f5cf37;
+}
+
+
+#driver-updates select {
+    width :50% ;
+    margin-bottom : 10px;
+    padding : 10px;
+    border : 1px solid #ccc ;
+    border-radius : 10px;
+}
+#driver-updates [type="submit"] {
+    width : 25% ;
+    margin-bottom : 10px;
+    padding : 10px;
+    border : 1px solid #ccc ;
+    border-radius : 10px;
+}
+
+.menu-btn {
+    background-color: #f5cf37;
+}
+
+
+@media only screen and (max-width: 960px) {
+    .home-page-top {
+     display: none;
+    }
+    
+    .home-navigation-container {
+        display: block;
+    }
+}
+
+
+
+@media only screen and (min-width: 960px) {
+    .home-page-top {
+        display: block;
+       }
+    .home-navigation-container {
+        display: none; 
+    }
+}
